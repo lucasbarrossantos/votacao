@@ -13,3 +13,7 @@
 - Caso não tenha o plugin do Lombok na ferramenta, basta baixa [aqui](https://projectlombok.org/download)
 - Em seguida, caso ao executar o jar do lombok, basta seguir os passos informados para a instalação do plugin 
 - Passo de instalação de cada IDE, está em `https://projectlombok.org/setup/eclipse -> Menu Install -> IDEs`
+
+### A documentação da api encontra-se em: 
+
+`http://localhost:8080/api/swagger-ui.html`
