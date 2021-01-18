@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings
+        xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd"
+        version="2.2">
+
+    <!-- Resultado da votação -->
+    <named-native-query name="Voto.resultadoVotacao" result-set-mapping="resultMapp">
+        <query>
+            select count(*) qtdVotos , p.descricao
+            from voto as v,
+            pauta as p
+            where v.pauta_id = p.id and v.tipo_voto = 'SIM' and v.pauta_id = :pautaId
+            group by p.id
+        </query>
+    </named-native-query>
+
+    <sql-result-set-mapping name="resultMapp">
+        <constructor-result target-class="br.com.votacao.api.v1.model.ResultadoDTO">
+            <column name="qtdVotos" class="java.lang.Long"/>
+            <column name="descricao" class="java.lang.String"/>
+        </constructor-result>
+    </sql-result-set-mapping>
+
+</entity-mappings>
